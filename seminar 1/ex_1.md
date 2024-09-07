@@ -35,3 +35,15 @@ cat /etc/passwd | grep -o "^[^:]*" | sort
 ![image](https://github.com/user-attachments/assets/1e260f9a-9822-4d5b-9a9d-675b7632fbd1)
 
 ![image](https://github.com/user-attachments/assets/b9ee1221-9768-4708-9f6c-f9b49dbe63a4)
+
+## Задача 4
+
+Написать программу для вывода всех идентификаторов (по правилам C/C++ или Java) в файле (без повторений).
+
+Пример для hello.c:
+
+```
+h hello include int main n printf return stdio void world
+```
+
+![Снимок экрана от 2024-09-07 09-41-23](https://github.com/user-attachments/assets/a11132e8-886c-4f01-8527-8b47f0acd31e)

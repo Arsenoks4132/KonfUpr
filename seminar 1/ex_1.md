@@ -2,6 +2,8 @@
 
 Вывести отсортированный в алфавитном порядке список имен пользователей в файле passwd (вам понадобится grep).
 
+**Решение:**
+
 ```
 cat /etc/passwd | grep -o "^[^:]*" | sort
 ```
@@ -21,6 +23,8 @@ cat /etc/passwd | grep -o "^[^:]*" | sort
 138 manet
 ```
 
+**Решение:**
+
 ```
 car /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
 ```
@@ -38,6 +42,8 @@ car /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
 +-----------------------+
 ```
 
+**Решение:**
+
 ![image](https://github.com/user-attachments/assets/1e260f9a-9822-4d5b-9a9d-675b7632fbd1)
 
 ![image](https://github.com/user-attachments/assets/b9ee1221-9768-4708-9f6c-f9b49dbe63a4)
@@ -52,6 +58,8 @@ car /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
 h hello include int main n printf return stdio void world
 ```
 
+**Решение:**
+
 ![Снимок экрана от 2024-09-07 09-41-23](https://github.com/user-attachments/assets/a11132e8-886c-4f01-8527-8b47f0acd31e)
 
 ## Задача 5
@@ -64,11 +72,15 @@ h hello include int main n printf return stdio void world
 ./reg banner
 ```
 
+**Решение:**
+
 ![image](https://github.com/user-attachments/assets/dda243ac-a460-488e-90b9-ef4b50a44586)
 
 ## Задача 6
 
 Написать программу для проверки наличия комментария в первой строке файлов с расширением c, js и py.
+
+**Решение:**
 
 ![image](https://github.com/user-attachments/assets/c2a21208-9a62-45bc-a28f-1b4ee33ef61d)
 

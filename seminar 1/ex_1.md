@@ -88,9 +88,25 @@ h hello include int main n printf return stdio void world
 
 Написать программу для нахождения файлов-дубликатов (имеющих 1 или более копий содержимого) по заданному пути (и подкаталогам).
 
+**Решение:**
+
+```
+find "$1" -type f -exec md5sum {} + | sort | uniq -w32 -dD
+```
+
+![image](https://github.com/user-attachments/assets/7ffe9708-32c1-473f-a99e-635e0e4a1499)
+
+
 ## Задача 8
 
 Написать программу, которая находит все файлы в данном каталоге с расширением, указанным в качестве аргумента и архивирует все эти файлы в архив tar.
+
+```
+find . -name "*.$1" -print0 | tar -czf archive.tar.gz --null -T -
+```
+
+![image](https://github.com/user-attachments/assets/c326b7c2-3269-40d0-a33f-2d0e2944f633)
+
 
 ## Задача 9
 

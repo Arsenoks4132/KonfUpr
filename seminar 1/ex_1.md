@@ -44,6 +44,19 @@ car /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
 
 **Решение:**
 
+```
+#! /bin/python3
+
+import sys
+s = sys.argv[1]
+
+line = f'+{"-" * (len(s) + 2)}+'
+
+print(line)
+print(f'| {s} |')
+print(line)
+```
+
 ![image](https://github.com/user-attachments/assets/1e260f9a-9822-4d5b-9a9d-675b7632fbd1)
 
 ![image](https://github.com/user-attachments/assets/b9ee1221-9768-4708-9f6c-f9b49dbe63a4)
@@ -60,6 +73,10 @@ h hello include int main n printf return stdio void world
 
 **Решение:**
 
+```
+cat hello.c | grep -Eo "\b[a-zA-Z_][0-9a-zA-Z_]*\b" | sort -u
+```
+
 ![Снимок экрана от 2024-09-07 09-41-23](https://github.com/user-attachments/assets/a11132e8-886c-4f01-8527-8b47f0acd31e)
 
 ## Задача 5
@@ -74,6 +91,13 @@ h hello include int main n printf return stdio void world
 
 **Решение:**
 
+```
+#! /usr/bin/bash
+
+chmod ugo+x $1
+sudo cp $1 /usr/local/bin
+```
+
 ![image](https://github.com/user-attachments/assets/dda243ac-a460-488e-90b9-ef4b50a44586)
 
 ## Задача 6
@@ -81,6 +105,31 @@ h hello include int main n printf return stdio void world
 Написать программу для проверки наличия комментария в первой строке файлов с расширением c, js и py.
 
 **Решение:**
+
+```
+#! /usr/bin/python3
+from sys import argv, exit
+
+f_name = argv[1]
+f = open(f_name, 'rt')
+line = f.readline().strip()
+is_comment = False
+if f_name.endswith(' .py'):
+    if line.startswith(('#', '"""', "'''")):
+        is_comment = True
+elif f_name.endswith(('.c', '.js')):
+    if line.startswith(('//', '/*')):
+        is_comment = True
+else:
+    print('wrong file extension')
+    exit()
+
+if is_comment:
+    print('comment present')
+else:
+    print('no comments')
+
+```
 
 ![image](https://github.com/user-attachments/assets/c2a21208-9a62-45bc-a28f-1b4ee33ef61d)
 

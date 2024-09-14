@@ -4,7 +4,7 @@
 
 **Решение:**
 
-```
+```bash
 cat /etc/passwd | grep -o "^[^:]*" | sort
 ```
 
@@ -25,7 +25,7 @@ cat /etc/passwd | grep -o "^[^:]*" | sort
 
 **Решение:**
 
-```
+```bash
 car /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
 ```
 
@@ -44,7 +44,7 @@ car /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
 
 **Решение:**
 
-```
+```py
 #! /bin/python3
 
 import sys
@@ -73,7 +73,7 @@ h hello include int main n printf return stdio void world
 
 **Решение:**
 
-```
+```bash
 cat hello.c | grep -Eo "\b[a-zA-Z_][0-9a-zA-Z_]*\b" | sort -u
 ```
 
@@ -91,7 +91,7 @@ cat hello.c | grep -Eo "\b[a-zA-Z_][0-9a-zA-Z_]*\b" | sort -u
 
 **Решение:**
 
-```
+```bash
 #! /usr/bin/bash
 
 chmod ugo+x $1
@@ -106,7 +106,7 @@ sudo cp $1 /usr/local/bin
 
 **Решение:**
 
-```
+```py
 #! /usr/bin/python3
 from sys import argv, exit
 
@@ -139,7 +139,7 @@ else:
 
 **Решение:**
 
-```
+```bash
 find "$1" -type f -exec md5sum {} + | sort | uniq -w32 -dD
 ```
 
@@ -152,7 +152,7 @@ find "$1" -type f -exec md5sum {} + | sort | uniq -w32 -dD
 
 **Решение:**
 
-```
+```bash
 find . -name "*.$1" -print0 | tar -czf archive.tar.gz --null -T -
 ```
 
@@ -165,7 +165,7 @@ find . -name "*.$1" -print0 | tar -czf archive.tar.gz --null -T -
 
 **Решение:**
 
-```
+```bash
 sed -i 's/    /\t/g' "$1"
 ```
 

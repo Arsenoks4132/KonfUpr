@@ -178,7 +178,7 @@ sed -i 's/    /\t/g' "$1"
 
 **Решение:**
 
-```
+```bash
 find "$1" -type f -empty -name "*.txt"
 ```
 

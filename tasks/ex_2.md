@@ -27,6 +27,33 @@ apt show node-express
 
 Сформировать graphviz-код и получить изображения зависимостей matplotlib и express.
 
+```dot
+digraph mygraph {
+    "matplotlib" -> "libjs-jquery";
+    "matplotlib" -> "libjs-jquery-ui";
+    "matplotlib" -> "python-matplotlib-data";
+    "matplotlib" -> "python3-dateutil";
+    "matplotlib" -> "python3-pil.imagetk";
+    "matplotlib" -> "python3-pyparsing";
+    "matplotlib" -> "python3-six";
+    "matplotlib" -> "python3-numpy";
+    "matplotlib" -> "python3-numpy-abi9";
+    "matplotlib" -> "python3";
+    "matplotlib" -> "python3";
+    "matplotlib" -> "python3-cycler";
+    "matplotlib" -> "python3-fonttools";
+    "matplotlib" -> "python3-kiwisolver";
+    "matplotlib" -> "python3-packaging";
+    "matplotlib" -> "python3-pil";
+    "matplotlib" -> "python3:any";
+    "matplotlib" -> "libc6";
+    "matplotlib" -> "libfreetype6";
+    "matplotlib" -> "libgcc-s1";
+    "matplotlib" -> "libqhull-r8.0";
+    "matplotlib" -> "libstdc++6";
+}
+```
+
 ## Задача 4
 
 Изучить основы программирования в ограничениях. Установить MiniZinc, разобраться с основами его синтаксиса и работы в IDE.

@@ -131,6 +131,60 @@ solve minimize a + b + c;
 
 ![image](https://github.com/user-attachments/assets/4bc25d4e-da9a-41a1-8b24-41fd67a7a306)
 
+### Решение: 
+
+```MiniZinc
+array [0..1] of var 0..1: icons;
+array [0..5] of var 0..1: menu;
+array [0..4] of var 0..1: dropdown;
+
+var 0..1: ic;
+var 0..5: me;
+var 0..4: dr;
+
+constraint sum(icons) <= 1;
+constraint sum(menu) <= 1;
+constraint sum(dropdown) <= 1;
+
+constraint icons[1] == 0;
+constraint menu[0] + menu[5] >= 1;
+
+constraint menu[0] <= dropdown[0];
+constraint forall (i in 1..5) (menu[i] <= dropdown[4] + dropdown[1]);
+
+constraint forall (i in 1..4) (dropdown[i] <= icons[1]);
+
+
+constraint forall(i in 0..1) (
+  if icons[i] == 1
+  then ic=i
+  else true
+  endif
+);
+
+constraint forall(i in 0..5) (
+  if menu[i] == 1
+  then me=i
+  else true
+  endif
+);
+
+constraint forall(i in 0..4) (
+  if dropdown[i] == 1
+  then dr=i
+  else true
+  endif
+);
+
+output [
+"icons version: ", show(ic), "\n",
+"menu version: ", show(me), "\n",
+"dropdown version: ", show(dr)
+];
+```
+
+![image](https://github.com/user-attachments/assets/f16d20f7-6b3b-4174-b2d7-554531075758)
+
 
 ## Задача 6
 
@@ -146,6 +200,68 @@ shared 2.0.0 не имеет зависимостей.
 shared 1.0.0 зависит от target ^1.0.0.
 target 2.0.0 и 1.0.0 не имеют зависимостей.
 ```
+
+### Решение:
+
+```MiniZinc
+var 0..1: foo_min;
+var 1..9: foo_maj;
+
+var 0..9: target_min;
+var 1..9: target_maj;
+
+var 0..9: left_min;
+var 1..9: left_maj;
+
+var 0..9: right_min;
+var 1..9: right_maj;
+
+var 0..9: shared_min;
+var 1..9: shared_maj;
+
+constraint foo_maj == 1;
+
+constraint target_maj == 2;
+
+constraint (
+if foo_min == 1
+then left_maj = 1 /\ right_maj = 1
+else true
+endif
+);
+
+constraint (
+if left_maj == 1
+then shared_maj >= 1
+else true
+endif
+);
+
+constraint (
+if right_maj == 1
+then shared_maj < 2
+else true
+endif
+);
+
+constraint (
+if shared_maj == 1
+then target_maj = 1
+else true
+endif
+);
+
+output [
+"foo ", show(foo_maj), ".", show(foo_min), ".0\n",
+"target ", show(target_maj), ".", show(target_min), ".0\n",
+"left ", show(left_maj), ".", show(left_min), ".0\n",
+"right ", show(right_maj), ".", show(right_min), ".0\n",
+"shared ", show(shared_maj), ".", show(shared_min), ".0"
+];
+```
+
+![image](https://github.com/user-attachments/assets/58fc8428-6d70-413e-880e-9be8043884e8)
+
 
 ## Задача 7
 

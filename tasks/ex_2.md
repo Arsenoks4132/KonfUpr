@@ -15,6 +15,14 @@ apt show python3-matplotlib
 
 Вывести служебную информацию о пакете express (JavaScript). Разобрать основные элементы содержимого файла со служебной информацией из пакета. Как получить пакет без менеджера пакетов, прямо из репозитория?
 
+### Решение:
+
+```bash
+apt show node-express
+```
+
+![image](https://github.com/user-attachments/assets/7e888b99-2f3c-4e8d-b252-43904e7ceff0)
+
 ## Задача 3
 
 Сформировать graphviz-код и получить изображения зависимостей matplotlib и express.

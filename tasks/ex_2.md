@@ -27,6 +27,8 @@ apt show node-express
 
 Сформировать graphviz-код и получить изображения зависимостей matplotlib и express.
 
+### Решение:
+
 ```dot
 digraph mygraph {
     "matplotlib" -> "libjs-jquery";
@@ -53,6 +55,47 @@ digraph mygraph {
     "matplotlib" -> "libstdc++6";
 }
 ```
+
+![matplotlib dot](https://github.com/user-attachments/assets/22ae214c-ab24-40d9-b0b7-412a4fc84134)
+
+```dot
+digraph mygraph {
+    "express" -> "node-accepts";
+    "express" -> "node-array-flatten";
+    "express" -> "node-body-parser";
+    "express" -> "node-content-disposition";
+    "express" -> "node-content-type";
+    "express" -> "node-cookie";
+    "express" -> "node-cookie-signature";
+    "express" -> "node-debug";
+    "express" -> "node-depd";
+    "express" -> "node-encodeurl";
+    "express" -> "node-escape-html";
+    "express" -> "node-etag";
+    "express" -> "node-finalhandler";
+    "express" -> "node-fresh";
+    "express" -> "node-merge-descriptors";
+    "express" -> "node-methods";
+    "express" -> "node-on-finished";
+    "express" -> "node-parseurl";
+    "express" -> "node-path-to-regexp";
+    "express" -> "node-proxy-addr";
+    "express" -> "node-qs";
+    "express" -> "node-range-parser";
+    "express" -> "node-safe-buffer";
+    "express" -> "node-send";
+    "express" -> "node-serve-static";
+    "express" -> "node-setprototypeof";
+    "express" -> "node-statuses";
+    "express" -> "node-type-is";
+    "express" -> "node-utils-merge";
+    "express" -> "node-vary";
+    "express" -> "nodejs:any";
+}
+```
+
+![express dot](https://github.com/user-attachments/assets/7d301090-b2e5-46a6-afd9-7c425467e95f)
+
 
 ## Задача 4
 

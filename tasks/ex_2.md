@@ -129,7 +129,8 @@ solve minimize a + b + c;
 
 Решить на MiniZinc задачу о зависимостях пакетов для рисунка, приведенного ниже.
 
-![](images/pubgrub.png)
+![image](https://github.com/user-attachments/assets/4bc25d4e-da9a-41a1-8b24-41fd67a7a306)
+
 
 ## Задача 6
 

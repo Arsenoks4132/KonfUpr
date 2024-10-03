@@ -26,7 +26,7 @@ cat /etc/passwd | grep -o "^[^:]*" | sort
 **Решение:**
 
 ```bash
-car /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
+cat /etc/protocols | awk "{print $2 $1}" | sort -nr | head -n 5
 ```
 
 ![image](https://github.com/user-attachments/assets/722552ed-33d9-402e-9395-5f9a947d98c6)

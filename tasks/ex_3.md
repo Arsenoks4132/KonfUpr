@@ -81,7 +81,7 @@ subject: "Конфигурационное управление"
 
 Реализовать на Dhall приведенный ниже пример в формате JSON. Использовать в реализации свойство программируемости и принцип DRY.
 
-```
+```json
 {
   "groups": [
     "ИКБО-1-20",
@@ -129,6 +129,41 @@ subject: "Конфигурационное управление"
   ],
   "subject": "Конфигурационное управление"
 } 
+```
+
+### Решение:
+
+```Dhall
+let range = https://prelude.dhall-lang.org/List/generate
+let index = https://prelude.dhall-lang.org/List/index
+
+let group_with_ind = \(i : Natural) -> "ИКБО-${Natural/show (i + 1)}-20"
+
+let my_Student = 
+  \(name : Text) -> 
+  \(age : Natural) -> 
+  \(group_ind : Natural) ->
+{ 
+  name = name, 
+  group = group_with_ind group_ind, 
+  age = age 
+}
+
+let group_list : List Text = range 24 Text group_with_ind
+
+let get_group = \(i : Natural) -> index i Text group_list
+
+in
+{ 
+  groups = group_list, 
+  students = [ 
+  my_Student "Иванов И.И." 19 3, 
+  my_Student "Петров П.П." 18 4, 
+  my_Student "Сидоров С.С." 18 4,
+  my_Student "Миркин К.Л." 18 9
+],
+  subject = "Конфигурационное управление"
+}
 ```
 
 Для решения дальнейших задач потребуется программа на Питоне, представленная ниже. Разбираться в самом языке Питон при этом необязательно.

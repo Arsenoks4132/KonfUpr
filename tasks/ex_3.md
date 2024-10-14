@@ -269,10 +269,12 @@ y & ~(y)
 ### Решение:
 
 ```BNF
-E = B | B B E
-B = 1 | 0
+E = var | ~ E | E op E | ( E )
+var = x | y
+op = & | V
 ```
 
 ### Результат:
 
-![image](https://github.com/user-attachments/assets/fc2bc5c6-5b81-4387-8af6-ef8eded5e1ea)
+![image](https://github.com/user-attachments/assets/94b14691-2bce-45b2-9dc8-f71da321f6fb)
+

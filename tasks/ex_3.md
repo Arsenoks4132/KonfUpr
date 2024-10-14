@@ -216,6 +216,18 @@ for i in range(10):
 000
 ```
 
+### Решение:
+
+```BNF
+E = B | B B E
+B = 1 | 0
+```
+
+### Результат:
+
+![image](https://github.com/user-attachments/assets/fc2bc5c6-5b81-4387-8af6-ef8eded5e1ea)
+
+
 ## Задача 4
 
 Язык правильно расставленных скобок двух видов.
@@ -228,6 +240,20 @@ for i in range(10):
 {}
 ```
 
+### Решение:
+
+```BNF
+E = L1 R1 | L2 R2 | L1 E R1 | L2 E R2
+L1 = [
+L2 = {
+R1 = ]
+R2 = }
+```
+
+### Результат:
+
+![image](https://github.com/user-attachments/assets/1864d383-f83d-4824-9a9b-25eb44dfb61e)
+
 ## Задача 5
 
 Язык выражений алгебры логики.
@@ -239,3 +265,14 @@ y & ~(y)
 ~x
 ~((x) & y | (y) | (x)) & x | x | (y & ~y)
 ```
+
+### Решение:
+
+```BNF
+E = B | B B E
+B = 1 | 0
+```
+
+### Результат:
+
+![image](https://github.com/user-attachments/assets/fc2bc5c6-5b81-4387-8af6-ef8eded5e1ea)

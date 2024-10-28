@@ -103,3 +103,8 @@ if __name__ == '__main__':
         call(['git', 'cat-file', '-p', file])
         print('\n' * 3)
 ```
+
+Результат работы:
+
+![image](https://github.com/user-attachments/assets/26fdd055-1adf-45be-b1ba-821ab620eb71)
+

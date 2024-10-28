@@ -81,32 +81,25 @@ Coder2 добавляет в readme в раздел об авторах свою
 
 Написать программу на Питоне (или другом ЯП), которая выводит список содержимого всех объектов репозитория. Воспользоваться командой "git cat-file -p". Идеальное решение – не использовать иных сторонних команд и библиотек для работы с git.
 
-## Полезные ссылки
+### Решение:
 
-Git
+```py
+from os import listdir
+from subprocess import call
 
-Учебник (рус.): https://git-scm.com/book/ru/v2
+if __name__ == '__main__':
+    path = '.git/objects'
+    lst = listdir(path)
+    while len(lst) > 0:
+        dr = lst.pop()
+        if dr in {'info', 'pack'}:
+            continue
 
-Шпаргалка (рус.): https://training.github.com/downloads/ru/github-git-cheat-sheet/
-
-Официальная документация: https://git-scm.com/docs
-
-Эксцентричный доклад Л. Торвальдса о Git: https://www.youtube.com/watch?v=4XpnKHJAok8
-
-Дерево Меркла: http://cryptowiki.net/index.php?title=Дерево_Merkle
-
-Git for Windows: https://git-scm.com/download/win
-
-Репозиторий chibicc: https://github.com/rui314/chibicc.git
-
-Игра по git: https://learngitbranching.js.org/?locale=ru_RU
-
-SHA-1
-
-Описание алгоритма: https://ru.wikipedia.org/wiki/SHA-1
-
-Вероятность хеш-коллизии: https://preshing.com/20110504/hash-collision-probabilities/
-
-https://ru.m.wikipedia.org/wiki/Парадокс_дней_рождения
-
-https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html
+        full_name = listdir(f'{path}/{dr}')[0]
+        file = dr + full_name[:2]
+        print('-' * 100)
+        print(f'COMMIT {dr + full_name}')
+        print('-' * 100)
+        call(['git', 'cat-file', '-p', file])
+        print('\n' * 3)
+```
